@@ -9,13 +9,16 @@ spring:
     password: corud
 
 
+mybatis:
+  configuration:
+    multiple-result-sets-enabled: false
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    jdbc-type-for-null: varchar
+    default-fetch-size: 500
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml
 
-  jpa:
-    hibernate:
-      ddl-auto: create #none , update, validate
-    properties:
-      hibernate:
-        format_sql: true
 
   jackson:
     property-naming-strategy: SNAKE_CASE

@@ -1,9 +1,0 @@
-<!--<mapper namespace="com.memo.app.api.mapper.ApiMapper">-->
-<mapper namespace="com.homework.hansol.mapper.MemoMapper">
-
-	<insert id="insertMemo" parameterType="com.homework.hansol.model.Memo">
-		/* MemoController. */
-		INSERT INTO MEMOS (MEMO_ID, TITLE , CONTENT) VALUES (#{id}, #{title}, #{content})
-	</insert>
-
-</mapper>

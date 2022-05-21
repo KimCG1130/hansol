@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.homework.hansol.mapper.EmployeeMapper">
+
+	<!--CREATE-->
+	<insert id="insertEmployee" parameterType="com.homework.hansol.model.Employee">
+		INSERT INTO employee (EMPLOYEE_ID, NAME , POSITION , COMPANY, TELEPHONE, TASK_NAME, SORT)
+		VALUES (#{id}, #{name}, #{position},#{company}, #{telephone}, #{task_name}, #{sort})
+	</insert>
+
+<!--LIST-->
+	<select id="selectEmployeeData" resultType="com.homework.hansol.model.Employee">
+		SELECT (EMPLOYEE_ID, NAME , POSITION , COMPANY, TELEPHONE, TASK_NAME, SORT)
+		FROM employee
+	</select>
+
+<!--SELECT ONE-->
+	<select id="selectEmployeeDataById" parameterType="long" resultType="com.homework.hansol.model.Employee">
+		SELECT (EMPLOYEE_ID, NAME , POSITION , COMPANY, TELEPHONE, TASK_NAME, SORT)
+		FROM employee
+		WHERE EMPLOYEE_ID = #{id}
+	</select>
+
+<!--UPDATE-->
+	<update id="updateEmployee" parameterType="com.homework.hansol.model.Employee" >
+		UPDATE employee
+		SET name=#{name}, position=#{position}, company=#{companay}, telephone=#{telephone},task_name=#{task_name}, sort=#{sort})
+		WHERE EMPLOYEE_ID = #{id}
+	</update>
+
+
+<!--DELETE ONE-->
+	<delete id="deleteEmployee" parameterType="long">
+		DELETE
+		FROM employee
+		WHERE id = #{id}
+	</delete>
+
+</mapper>
+
