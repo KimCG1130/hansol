@@ -5,6 +5,7 @@ import com.homework.hansol.service.EmployeeService;
 import io.swagger.annotations.Api;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+
 
     @GetMapping
     public List<Employee> getEmployeeList() {

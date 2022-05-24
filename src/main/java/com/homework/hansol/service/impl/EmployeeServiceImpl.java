@@ -4,6 +4,7 @@ package com.homework.hansol.service.impl;
 import com.homework.hansol.mapper.EmployeeMapper;
 import com.homework.hansol.model.Employee;
 import com.homework.hansol.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,6 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeMapper employeeMapper;
 
+    @Autowired
     public EmployeeServiceImpl(EmployeeMapper employeeMapper) {
 
         this.employeeMapper = employeeMapper;
@@ -30,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public List<Employee> getEmployeeList() {
 
-        return employeeMapper.findAll();
+        return employeeMapper.getEmployeeList();
     }
 
     @Override

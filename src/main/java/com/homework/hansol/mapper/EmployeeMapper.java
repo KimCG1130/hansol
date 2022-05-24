@@ -2,7 +2,6 @@ package com.homework.hansol.mapper;
 
 
 import com.homework.hansol.model.Employee;
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -18,15 +17,17 @@ public interface EmployeeMapper {
     boolean insertEmployee(Employee employee);
 
     @Select("select * from employee")
-    List<Employee> findAll();
+    List<Employee> getEmployeeList();
 
-    @Select("select * from employee where id = ")
+    @Select("select * from employee where employee_id = #{id}")
     Optional<Employee> selectEmployeeById(Long id);
 
-    @Update("update employee")
+    @Update("UPDATE employee " +
+            "SET name=#{name}, position=#{position}, company=#{company}, telephone=#{telephone},task_name=#{task_name}, sort=#{sort}"+
+            "WHERE EMPLOYEE_ID = #{id}")
     void updateEmployee(Employee employee);
 
-    @Delete("delete employee where id = ")
+    @Select("delete from employee where employee_id = #{id}")
     void deleteEmployee(Long employee);
 
 

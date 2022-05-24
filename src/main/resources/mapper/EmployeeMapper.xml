@@ -9,13 +9,13 @@
 	</insert>
 
 <!--LIST-->
-	<select id="selectEmployeeData" resultType="com.homework.hansol.model.Employee">
+	<select id="getEmployeeList" resultType="com.homework.hansol.model.Employee">
 		SELECT (EMPLOYEE_ID, NAME , POSITION , COMPANY, TELEPHONE, TASK_NAME, SORT)
 		FROM employee
 	</select>
 
 <!--SELECT ONE-->
-	<select id="selectEmployeeDataById" parameterType="long" resultType="com.homework.hansol.model.Employee">
+	<select id="selectEmployeeById" parameterType="long" resultType="com.homework.hansol.model.Employee">
 		SELECT (EMPLOYEE_ID, NAME , POSITION , COMPANY, TELEPHONE, TASK_NAME, SORT)
 		FROM employee
 		WHERE EMPLOYEE_ID = #{id}
@@ -24,7 +24,7 @@
 <!--UPDATE-->
 	<update id="updateEmployee" parameterType="com.homework.hansol.model.Employee" >
 		UPDATE employee
-		SET name=#{name}, position=#{position}, company=#{companay}, telephone=#{telephone},task_name=#{task_name}, sort=#{sort})
+		SET name=#{name}, position=#{position}, company=#{company}, telephone=#{telephone},task_name=#{task_name}, sort=#{sort})
 		WHERE EMPLOYEE_ID = #{id}
 	</update>
 
